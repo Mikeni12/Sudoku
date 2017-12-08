@@ -14,7 +14,7 @@ class GUI implements ActionListener {
     static boolean flag = false ;
     
     public GUI(){
-        f = new JFrame("Sudoku");
+        f = new JFrame("Resolución del Sudoku");
         cont = new JPanel();
         cont.setLayout(new BoxLayout(cont,BoxLayout.Y_AXIS));        
         p = new JPanel(new GridLayout(size,size));
@@ -48,11 +48,10 @@ class GUI implements ActionListener {
         if( e.getSource() == b)
         {
             solve();
-            //JOptionPane.showMessageDialog(f, "Solved.");
             if(flag)
-                b.setText("Solved! Time : "+time+" Seconds.");
+                b.setText("¡Resuelto! Tiempo: "+time+" seg.");
             else
-                b.setText("Solve Sudoku");
+                b.setText("Resolver Sudoku");
         }
         if( e.getSource() == b1 )
             reset();        
@@ -64,8 +63,8 @@ class GUI implements ActionListener {
         {
             tf[i].setText("");
         }        
-        b.setText("Solve Sudoku");        
-        JOptionPane.showMessageDialog(f, "Sudoku Successfully Reset.");
+        b.setText("Resolver Sudoku");        
+        JOptionPane.showMessageDialog(f, "Se ha reiniciado el Sudoku.");
     }
     
     
@@ -81,10 +80,10 @@ class GUI implements ActionListener {
             if( solveSudoku() )            
                 flag = true ;            
             else            
-                JOptionPane.showMessageDialog(f,"Invalid sudoku ! Please try Again. Time : "+time+" Sec.");            
+                JOptionPane.showMessageDialog(f,"¡Sudoku no válido! Intente de nuevo. Tiempo: "+time+" seg.");            
         }
         else        
-            JOptionPane.showMessageDialog(f,"Invalid sudoku ! Please try Again");              
+            JOptionPane.showMessageDialog(f,"¡Sudoku no válido! Intente de nuevo.");              
         time = ( System.currentTimeMillis() - t1 )/1000.000 ;
     }
     
