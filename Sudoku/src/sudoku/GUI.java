@@ -14,7 +14,7 @@ class GUI implements ActionListener {
     static boolean flag=false;
     
     public GUI(){
-        f = new JFrame("Resolución del Sudoku");
+        f = new JFrame("Resolución del Sudoku (Reducibilidad)");
         //f.setLocationRelativeTo(null);
         cont = new JPanel();
         cont.setLayout(new BoxLayout(cont,BoxLayout.Y_AXIS));        
