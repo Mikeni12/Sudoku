@@ -7,7 +7,7 @@ class GUI implements ActionListener {
     JPanel cont,p,p1;
     static JFrame f;
     static JTextField[] tf = new JTextField[81];
-    static JButton b1,b2;
+    static JButton b1,b2,b3;
     static int x,y,tam = 9;
     static int[][] sudoku=new int[tam][tam];
     static double tiempo=0.00;
@@ -35,7 +35,10 @@ class GUI implements ActionListener {
         p1.add(b1);        
         b2 = new JButton("Reiniciar Sudoku");
         b2.addActionListener(this);        
-        p1.add(b2);        
+        p1.add(b2);
+        b3 = new JButton("Llenar Sudoku");
+        b2.addActionListener(this);        
+        p1.add(b3);        
         cont.add(p);
         cont.add(p1);        
         f.add(cont);        
@@ -46,7 +49,7 @@ class GUI implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e){
-        if( e.getSource() == b1)
+        if(e.getSource() == b1)
         {
             solve();
             if(flag)
@@ -54,8 +57,10 @@ class GUI implements ActionListener {
             else
                 b1.setText("Resolver Sudoku");
         }
-        if( e.getSource() == b2 )
-            reset();        
+        if(e.getSource() == b2)
+            reset();    
+        if(e.getSource() == b3)
+            makeSudoku();
     }
     
     
